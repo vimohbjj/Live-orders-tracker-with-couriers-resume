@@ -1,0 +1,22 @@
+
+<section *ngIf="pendingOrdersFromPastDays != undefined && pendingOrdersFromPastDays > 0" class="alert-attention flex flex-wrap place-items-center text-(--text) gap-3">
+        <div class="flex items-center text-center gap-2">
+            <span class="text-(--secondary_yellow)" [innerHTML]="safeIcon"></span>
+            <h2 class="text-xl text-center xl:text-left font-semibold col-span-12 xl:col-span-1 text-(--secondary_yellow)">Alertas</h2>
+        </div>
+        <div class="flex flex-col md:flex-row gap-3 text-base justify-center xl:justify-start">
+            <span class="flex gap-2 border-2 bg-(--bg) border-(--secondary_yellow) py-1.5 px-2.5 rounded-2xl text-sm">
+                <p class="font-semibold"> 
+                    {{ pendingOrdersFromPastDays }} orden(es) de 7 días previos atrasada(s)
+                </p>
+            </span>
+            <!-- <span class="flex border-2 bg-(--primary_red) border-(--secondary_red) py-2 px-4 rounded-2xl">
+                <p class="font-semibold">{{ pedidosYaOverdueOrders }} orden(es) PedidosYa atrasada(s)</p>
+                <p></p>
+            </span>
+            <span class="flex border-2 bg-(--primary_orange) border-(--secondary_orange) py-2 px-4 rounded-2xl">
+                <p class="font-semibold">{{ pedidosYaLastMinuteOrders }} orden(es) PedidosYa a ultimo minuto</p>
+                <p></p>
+            </span> -->
+        </div>
+</section>

@@ -1,0 +1,25 @@
+<div>
+    <h2 class="text-xl text-center font-semibold mb-3">Resumen de órdenes</h2>
+
+    @if (loading) {
+        <p class="text-center py-8">Cargando órdenes...</p>
+    } 
+    
+    @if (!loading && couriers.length === 0) {
+        <p class="text-center py-8 text-lg">No se encontraron couriers :(</p>
+    } 
+
+    @if(!loading && couriers.length > 0){
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-1 gap-3">
+            <app-courier 
+                *ngFor="let courier of couriers"
+                    [name]="courier.name"
+                    [pendingOrders]="courier.pendingOrders"
+                    [finishedOrders]="courier.finishedOrders"
+                    [pickUpTime]="courier.pickUpTime"
+                    [state]="courier.state"
+                    [totalOrders]="courier.totalOrders">
+            </app-courier>
+        </div>
+    } 
+</div>

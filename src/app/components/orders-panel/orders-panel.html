@@ -1,0 +1,68 @@
+<section>
+    <div class="flex flex-col lg:flex-row justify-between gap-6 text-md text-md text-center">
+        <h2 class="text-xl min-[1800px]:text-2xl font-semibold">Órdenes de envio</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm">
+            <span class="rounded-4xl place-content-center items-center gap-1.5 py-1 bg-(--primary_red) text-(--secondary_red) border-2 border-(--secondary_red)">
+                <p>{{ overdueOrders }} atrasadas</p>
+            </span>   
+            <span class="rounded-4xl place-content-center items-center gap-1.5 bg-(--primary_orange) text-(--secondary_orange) border-2 border-(--secondary_orange)">
+                <p>{{ lastMinuteOrders }} al límite</p>
+            </span>
+            <span class="px-5 rounded-4xl place-content-center items-center gap-1.5 py-1 bg-(--primary_yellow) text-(--secondary_yellow) border-2 border-(--secondary_yellow)">
+                <p>{{ approachingDeadlineOrders }} demorando</p>
+            </span>
+            <span class="rounded-4xl place-content-center items-center gap-1.5 py-1 bg-(--primary_green) text-(--secondary_green) border-2 border-(--secondary_green)">
+                <p>{{ activeOrders }} a tiempo</p>
+            </span>   
+        </div>
+    </div>
+    
+    @if (loading) {
+        <p class="text-center py-8">Cargando órdenes...</p>
+    } 
+    
+    @if (!loading && filteredOrders.length === 0) {
+        <p class="text-center py-8 text-lg">No se pudo encontrar ninguna orden :(</p>
+    } 
+    
+    @if (!loading && filteredOrders.length > 0) {
+        <div class="grid grid-cols-1 2xl:grid-cols-2 my-2 gap-1.5">
+            <div>
+                <h3 class="font-semibold text-center text-xl">Órdenes pedidosYa</h3>
+                @if(this.pedidosYaOrders.length > 0){
+                    <app-order  
+                        *ngFor="let order of pedidosYaOrders"
+                        [id]="order.id"
+                        [courier]="order.courier"
+                        [ingreso]="order.ingreso"
+                        [stock]="order.stock"
+                        [orderState]="order.orderState"
+                        [timeState]="order.timeState"
+                        [pickUpTime]="order.pickUpTime"
+                        (timeStateChange)="onTimeStateChange($event)">
+                    </app-order>
+                } @else {
+                    <p class="text-center py-8 text-lg">No se pudo encontrar ninguna orden :(</p>
+                }
+            </div>
+            <div>
+                <h3 class="font-semibold text-center text-xl">Órdenes del día</h3>
+                @if(this.filteredOrders.length > 0){
+                    <app-order 
+                        *ngFor="let order of filteredOrders"
+                        [id]="order.id"
+                        [courier]="order.courier"
+                        [ingreso]="order.ingreso"
+                        [stock]="order.stock"
+                        [orderState]="order.orderState"
+                        [timeState]="order.timeState"
+                        [pickUpTime]="order.pickUpTime"
+                        (timeStateChange)="onTimeStateChange($event)">
+                    </app-order>
+                } @else {
+                    <p class="text-center py-8 text-lg">No se pudo encontrar ninguna orden :(</p>
+                }
+            </div>
+        </div>
+    }
+</section>

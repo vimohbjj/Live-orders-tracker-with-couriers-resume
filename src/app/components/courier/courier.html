@@ -1,0 +1,35 @@
+<div class="grid grid-cols-12 justify-between border-2 border-(--border) bg-(--secondary_bg) py-2 px-4 rounded-2xl items-center">
+    <div class="col-span-12 2xl:col-span-6 min-[1800px]:col-span-4 flex flex-col justify-evenly">
+        <span class="flex flex-wrap md:items-center gap-3">
+            <span class="flex gap-2">
+                <span [innerHTML]="safeIcon"></span>
+                <h4 class="font-semibold">{{ name }}</h4>  
+            </span>
+        </span>
+        <p class="hidden 2xl:inline text-sm text-(--secondary_text)">Próximo retiro: 
+            <span class="text-(--text) text-md font-semibold">
+                {{ pickUpTime }}
+            </span>
+        </p>
+    </div>
+    <div class="col-span-12 2xl:col-span-6 flex flex-col xl:flex-col 2xl:flex-row 2xl:justify-evenly items-start 2xl:gap-4">
+        <span class="flex 2xl:flex-col min-[1800px]:flex-r items-center gap-1">
+            <p class="text-(--secondary_text) text-base">Total</p>
+            <p class="text-lg 2xl:text-2xl text-end font-semibold">{{ totalOrders }}</p>
+        </span>
+        <span class="flex 2xl:flex-col items-center gap-1">
+            <p class="text-(--secondary_text) text-base">Pendientes</p>
+            <p class="text-lg 2xl:text-2xl text-end font-semibold">{{ pendingOrders }}</p>
+        </span>
+        <span class="flex 2xl:flex-col items-center gap-1">
+            <p class="text-(--secondary_text) text-base">Listas</p>
+            <p class="text-lg 2xl:text-2xl text-end font-semibold">{{ finishedOrders }}</p>
+        </span>
+    </div>
+    <p class="col-span-12 2xl:text-start lg:inline 2xl:hidden text-(--secondary_text) text-base">
+        Próximo retiro 
+        <span class="text-(--text) text-md font-semibold">
+            {{ pickUpTime }}
+        </span>
+    </p>
+</div>

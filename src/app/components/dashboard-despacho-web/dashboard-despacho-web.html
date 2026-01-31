@@ -1,0 +1,29 @@
+<div class="bg-(--primary_bg)  min-h-screen">
+        <div  class="flex flex-col justify-self-center place-content-center gap-4 w-[95%]">
+
+            <span class="flex flex-wrap items-center gap-5 mt-6 text-2xl text-(--text) font-bold">
+                <h1>Dashboard de cumplimiento</h1>
+                <app-alerts-panel></app-alerts-panel>
+            </span>
+
+            <app-dashboard-header
+                [todayOrders]="todayOrders"
+                [pendingPedidosYa]="pendingPedidosYa"
+                [inPreparation]="inPreparation"
+                [finishedOrders]="finishedOrders"
+                [successRate]="successRate">
+            </app-dashboard-header>
+
+            <section class="grid grid-cols-1 xl:grid-cols-12 gap-4 auto-fit mt-3">
+                <app-orders-panel class="flex flex-col text-(--text) col-span-1 xl:col-span-10 2xl:col-span-9 gap-4 md:gap-2"
+                    (ordersLoaded)="onOrdersLoaded($event)"
+                    (filteredOrdersLoaded)="onFilteredOrdersLoaded($event)"
+                    (loadingChange)="onOrdersLoadingChange($event)"
+                    >
+                </app-orders-panel>
+                <app-couriers-panel class="col-span-1 xl:col-span-2 2xl:col-span-3 top-0 text-(--text) text-lg"
+                    (loadingChange)="onCouriersLoadingChange($event)">
+                </app-couriers-panel>
+            </section>
+        </div>
+</div>

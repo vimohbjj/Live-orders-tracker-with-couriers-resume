@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+:root{
+    --primary_green: #012126;
+    --secondary_green: #a4f4cf;
+    --primary_yellow: #271c13;
+    --secondary_yellow: #fedf7d;
+    --primary_orange: #341400;
+    --secondary_orange: #f27a2f;
+    --primary_red: #3b0f0f;
+    --secondary_red: #f83d3d;
+    --primary_violet: #480943;
+    --secondary_violet: #620e5b;
+
+    --primary_bg: #040817;
+    --secondary_bg: rgb(17, 19, 31);
+    --border: oklch(44.6% 0.03 256.802);
+
+    --text: oklch(97% 0.001 106.424);
+    --secondary_text: oklch(79.552% 0.00148 285.454);
+}

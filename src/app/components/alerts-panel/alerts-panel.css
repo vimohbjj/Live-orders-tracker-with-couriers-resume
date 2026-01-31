@@ -1,0 +1,14 @@
+.alert-attention {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 2;
+    transform: scale(1.03);
+  }
+}

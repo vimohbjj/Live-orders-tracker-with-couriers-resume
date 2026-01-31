@@ -1,0 +1,44 @@
+<div class="grid grid-cols-12 justify-between items-center py-2 px-4 rounded-2xl text-(--text) mt-1.5" 
+  [ngClass]="orderClass">
+  
+    <span class="grid grid-cols-12 col-span-12 sm:col-span-7 items-center text-center">
+        <span class="col-span-12 sm:col-span-3 flex sm:flex-col gap-2 sm:gap-0 items-center">
+            <h3 class="text-lg font-semibold text-(--text)">{{ id }}</h3>
+            <p class="text-xs text-center">Id</p>
+        </span>
+        <span class="col-span-12 sm:col-span-3 flex sm:flex-col gap-2 sm:gap-0 items-center">
+            <p class="text-base font-semibold text-(--text)">{{ courier }}</p>
+            <p class="text-xs text-center">Courier</p>
+        </span>
+        <span class="col-span-12 sm:col-span-3 flex sm:flex-col gap-2 sm:gap-0 items-center">
+            <p class="text-base font-semibold text-(--text)">{{ orderState }}</p>
+            <p class="text-xs text-center">Estado</p>
+        </span>
+        <span class="col-span-12 sm:col-span-3 flex sm:flex-col gap-2 sm:gap-0 items-center">
+            <span class="text-base font-semibold text-(--text)">{{ stock }}</span>
+            <p class="text-xs text-center">Ítems</p>
+        </span>
+    </span>
+
+    <span class="grid grid-cols-12 col-span-12 sm:col-span-5 items-center text-center">
+        <span class="col-span-12 sm:col-span-4 flex sm:flex-col gap-2 sm:gap-0 items-center">
+            <span class="text-base font-semibold text-(--text)">{{ ingreso }}</span>
+            <p class="text-xs">Ingreso</p>
+        </span>
+        <span class="col-span-12 sm:col-span-4 flex sm:flex-col gap-2 sm:gap-0 items-center">
+            <app-order-timer class="col-span-12 sm:col-span-4"
+                [startTime]="ingreso"
+                [limitMinutes]="120"
+                (statusChange)="onTimerStatusChange($event)">
+            </app-order-timer>
+            <p class="text-xs">Cronometro</p>
+        </span>
+        <span class="col-span-12 sm:col-span-4 flex sm:flex-col gap-2 sm:gap-0 items-center">
+            <app-courier-timer class="col-span-12 sm:col-span-4 min-[1800px]:text-center"
+                [pickUpTime]="pickUpTime ?? ''">
+            </app-courier-timer>
+            <p class="text-xs">Pick up time</p>
+        </span>
+    </span>
+
+</div>
