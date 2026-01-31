@@ -1,6 +1,8 @@
 # DespachoWeb
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+Take into account that this project is merely for displaying my abilitys as a front end developer. 
+You wont be able to see any orders when launching de page because I personally deleted the urls that contacted the APIs. This is because I cant let people to see the domain of the APIs since they are being hosted by my employeers.
 
 ## Development server
 
